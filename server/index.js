@@ -12,4 +12,9 @@ massive(DATABASE_STRING).then(db => {
     console.log("Database connected");
 });
 
-app.listen(SERVER_PORT, () => console.log(`Listeing on ${SERVER_PORT}`));
+app.get('/api/houses', con.getHouses);
+app.post('/api/house', con.addHouse);
+app.delete('/api/house/:id', con.deleteHouse);
+app.put('/api/house/:id', con.editHouse);
+
+app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`));
